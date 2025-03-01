@@ -47,19 +47,6 @@ Each concept is approached through practical projects, ensuring both **theoretic
 
 ---
 
-## 🏆 Progress Tracking
-
-| Day | Project Name | Key Topics | Link |
-|---|---|---|---|
-| 1 | Band Name Generator | String Manipulation, User Input | [Day 1](./day-01/) |
-| 2 | Tip Calculator | Arithmetic Operations, Input Validation | [Day 2](./day-02/) |
-| 3 | Treasure Island Game | Control Flow, Nested Logic | [Day 3](./day-03/) |
-| ... | ... | ... | ... |
-
-The table above grows as the challenge progresses, documenting each project along with direct links to the code and write-up.
-
----
-
 ## ✍️ My Personal Goals
 
 This repository also represents my personal commitment to:
