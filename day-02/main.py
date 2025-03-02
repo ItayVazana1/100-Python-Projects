@@ -115,5 +115,10 @@ score = score + 1
 score += 1
 
 # fstring = combine data types in a string in native way:
-# this is the old way : 
-my_str = "I am " + str(123)
+# this is the old way :
+new_num = 123
+my_str = "I am " + str(new_num)
+# the new way:
+my_str1 = f'I am {new_num}'
+print("this is the old format --> " + my_str)
+print("and this is the fstring format --> " + my_str1)

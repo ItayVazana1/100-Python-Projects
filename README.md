@@ -26,8 +26,45 @@ This repository is more than just code — it's a structured **learning journey*
 
 ---
 
-## 🔨 Key Concepts Covered
+## ✍️ My Personal Goals
+This repository also represents my personal commitment to:
 
+- 📈 Continuous improvement as a developer.
+- 📋 Writing **clear, documented code**.
+- 🧠 Reflecting on **challenges and solutions**.
+- 👥 Sharing knowledge and insights with the community.
+
+---
+
+## 📬 Get in Touch
+If you're also going through the **100 Days of Code** challenge — or you're just interested in Python development — feel free to connect with me!
+
+- 🔗 [GitHub Profile](https://github.com/ItayVazana1)
+- ✉️ [LinkedIn Profile](https://www.linkedin.com/in/itayvazana)
+
+---
+
+## ⚠️ Important Note
+This repository reflects my **personal work and learning experience**.  
+It does **not contain or redistribute any original course materials**, content, or copyrighted resources from the **100 Days of Code - Python Pro Bootcamp** by Angela Yu.
+
+The projects and explanations here are fully my own — inspired by the course topics, but independently written and documented.
+
+---
+
+## 📊 Progress Table
+
+| Day | Project Name | GitHub Link |
+|----|----------------------|----------------|
+| 1  | Band Name Generator 🎸 | [Day 1](./day-01) |
+| 2  | Tip Calculator 💰 | [Day 2](./day-02) |
+| 3  | (Project Name) | [Day 3](./day-03) |
+| 4  | (Project Name) | [Day 4](./day-04) |
+| ... | ... | ... |
+
+---
+
+## 🔨 Key Concepts Covered
 Across the 100 projects, these are just a few of the skills and concepts I'm exploring:
 
 - ✅ Python Syntax & Data Structures
@@ -44,35 +81,6 @@ Across the 100 projects, these are just a few of the skills and concepts I'm exp
 - ✅ Deployment & Packaging
 
 Each concept is approached through practical projects, ensuring both **theoretical understanding** and **real-world application**.
-
----
-
-## ✍️ My Personal Goals
-
-This repository also represents my personal commitment to:
-
-- 📈 Continuous improvement as a developer.
-- 📋 Writing **clear, documented code**.
-- 🧠 Reflecting on **challenges and solutions**.
-- 👥 Sharing knowledge and insights with the community.
-
----
-
-## 📬 Get in Touch
-
-If you're also going through the **100 Days of Code** challenge — or you're just interested in Python development — feel free to connect with me!
-
-- 🔗 [GitHub Profile](https://github.com/ItayVazana1)
-- ✉️ [LinkedIn Profile](https://www.linkedin.com/in/itayvazana)
-
----
-
-## ⚠️ Important Note
-
-This repository reflects my **personal work and learning experience**.  
-It does **not contain or redistribute any original course materials**, content, or copyrighted resources from the **100 Days of Code - Python Pro Bootcamp** by Angela Yu.
-
-The projects and explanations here are fully my own — inspired by the course topics, but independently written and documented.
 
 ---
 
