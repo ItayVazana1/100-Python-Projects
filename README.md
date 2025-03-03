@@ -58,7 +58,7 @@ The projects and explanations here are fully my own — inspired by the course t
 |----|----------------------|----------------|
 | 1  | Band Name Generator 🎸 | [Day 1](./day-01) |
 | 2  | Tip Calculator 💰 | [Day 2](./day-02) |
-| 3  | (Project Name) | [Day 3](./day-03) |
+| 3  | Treasure Hunt Game 🏝️💰 | [Day 3](./day-03) |
 | 4  | (Project Name) | [Day 4](./day-04) |
 | ... | ... | ... |
 
