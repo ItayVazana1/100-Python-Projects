@@ -1,5 +1,3 @@
-# Day 06 - Personal Notes
-
 
 # 🌀 Lost in a Maze - Problem and Solution Explanation 🧩
 
