@@ -39,9 +39,14 @@ while not win_flag and lives > 0:
     elif letter_exist:
         print(f"Success! this was a good guess..")
         letter_exist = False
+    elif not letter_exist and lives == 1:
+        lives -= 1
+        print("The Word was:")
+        print(f"----------> {rand_word} <----------")
+        print(f"but you didn't succeeded to guess all letters! you lose the game!")
     else:
         lives -= 1
-        print(f"Oops! wrong guess.. youe left with {lives}")
+        print(f"Oops! wrong guess.. you left with {lives} lives")
 
 
 
