@@ -21,5 +21,4 @@
 
 # if correct - replace the specific dash with the letter
 
-
-# if not correct - lose a life for the palyer
+# Not much to say here - just took at the daily project!

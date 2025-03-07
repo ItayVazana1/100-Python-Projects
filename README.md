@@ -62,6 +62,7 @@ The projects and explanations here are fully my own — inspired by the course t
 | 4  | Rock, Paper, Scissors ✊📄✂️ | [Day 4](./day-04) |
 | 5  | Strong Password Generator 🔐 | [Day 5](./day-05) |
 | 6  | Reeborg's Maze Solver 🤖🌀 | [Day 6](./day-06) |
+| 7  | Hangman Game 🎭 | [Day 7](./day-07) |
 | ... | ... | ... |
 
 
