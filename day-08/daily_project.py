@@ -43,30 +43,48 @@ C:::::C               a::::aaaa::::::a e::::::eeeeeeeeeee        s::::::s    a::
 """
 
 def encode(msg, shift_num):
-    msg = msg.lower()
     encrypted_msg = ""
-    alphabet = " abcdefghijklmnopqrstuvwxyz"
+    symbols_and_space = " ?!@#$%^&*()"
+    low_alphabet = "abcdefghijklmnopqrstuvwxyz"
+    cap_alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     for letter in msg:
-        for i in range(len(alphabet)):
-            if letter == alphabet[i]:
+        if letter in low_alphabet:
+            char_bank = low_alphabet
+        elif letter in cap_alphabet:
+            char_bank = cap_alphabet
+        else:
+            char_bank = symbols_and_space
+        for i in range(len(char_bank)):
+            if letter == char_bank[i]:
                 c = i + shift_num
-                while c >= len(alphabet):
-                    c -= len(alphabet)
-                encrypted_msg += alphabet[c]
+                while c >= len(char_bank):
+                    c -= len(char_bank)
+                encrypted_msg += char_bank[c]
+                break
 
     print(f"The encoded result (between the []) : [{encrypted_msg}] ")
 
 
 def decode(msg, shift_num):
+    is_cap = False
     original_msg = ""
-    alphabet = " abcdefghijklmnopqrstuvwxyz"
+    symbols_and_space = " ?!@#$%^&*()"
+    low_alphabet = "abcdefghijklmnopqrstuvwxyz"
+    cap_alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     for letter in msg:
-        for i in range(len(alphabet)):
-            if letter == alphabet[i]:
+        if letter in low_alphabet:
+            char_bank = low_alphabet
+        elif letter in cap_alphabet:
+            char_bank = cap_alphabet
+        else:
+            char_bank = symbols_and_space
+        for i in range(len(char_bank)):
+            if letter == char_bank[i]:
                 c = i - shift_num
                 while c < 0:
-                    c += len(alphabet)
-                original_msg += alphabet[c]
+                    c += len(char_bank)
+                original_msg += char_bank[c]
+                break
 
     print(f"The decoded result : {original_msg}")
 
