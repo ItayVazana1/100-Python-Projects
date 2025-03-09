@@ -47,11 +47,14 @@ def encode(msg, shift_num):
     symbols_and_space = " ?!@#$%^&*()"
     low_alphabet = "abcdefghijklmnopqrstuvwxyz"
     cap_alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    numerical_alphabet = "0123456789"
     for letter in msg:
         if letter in low_alphabet:
             char_bank = low_alphabet
         elif letter in cap_alphabet:
             char_bank = cap_alphabet
+        elif letter in numerical_alphabet:
+            char_bank = numerical_alphabet
         else:
             char_bank = symbols_and_space
         for i in range(len(char_bank)):
@@ -71,11 +74,14 @@ def decode(msg, shift_num):
     symbols_and_space = " ?!@#$%^&*()"
     low_alphabet = "abcdefghijklmnopqrstuvwxyz"
     cap_alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    numerical_alphabet = "0123456789"
     for letter in msg:
         if letter in low_alphabet:
             char_bank = low_alphabet
         elif letter in cap_alphabet:
             char_bank = cap_alphabet
+        elif letter in numerical_alphabet:
+            char_bank = numerical_alphabet
         else:
             char_bank = symbols_and_space
         for i in range(len(char_bank)):
