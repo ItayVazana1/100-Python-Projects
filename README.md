@@ -64,6 +64,7 @@ The projects and explanations here are fully my own — inspired by the course t
 | 6  | Reeborg's Maze Solver 🤖🌀 | [Day 6](./day-06) |
 | 7  | Hangman Game 🎭 | [Day 7](./day-07) |
 | 8  | Caesar Cipher Generator 🔒 | [Day 8](./day-08) |
+| 9  | Secret Auction 🎩💰 | [Day 9](./day-09) |
 | ... | ... | ... |
 
 
