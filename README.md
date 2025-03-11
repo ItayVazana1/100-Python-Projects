@@ -65,6 +65,7 @@ The projects and explanations here are fully my own — inspired by the course t
 | 7  | Hangman Game 🎭 | [Day 7](./day-07) |
 | 8  | Caesar Cipher Generator 🔒 | [Day 8](./day-08) |
 | 9  | Secret Auction 🎩💰 | [Day 9](./day-09) |
+| 10 | Calculator App 🧮 | [Day 10](./day-10) |
 | ... | ... | ... |
 
 
