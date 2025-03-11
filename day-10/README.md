@@ -131,6 +131,26 @@ for any_name in my_list:
 
 ## 🎯 Day 10 Project - Calculator App 🧮
 
+### 🔍 How Does the Project Work?
+This project is a simple **calculator** that supports multiple operations:
+- Addition (`+`)
+- Subtraction (`-`)
+- Multiplication (`*`)
+- Division (`/`)
+- Power (`a^b`)
+- Modulo (`%`)
+
+🔹 The **core logic** is built inside the `calc()` function, which utilizes **nested functions** to define each operation separately.
+🔹 A **dictionary** is used to map each operation symbol to its corresponding function.
+🔹 The program runs in a loop, allowing continuous calculations until the user chooses to exit.
+
+### 🛠️ Python Features Used in the Project
+✅ **Functions & Nested Functions** - Each operation is implemented as a separate function within `calc()`.
+✅ **Dictionaries** - Used to store and retrieve operations efficiently.
+✅ **Loops** - The program continues running until the user chooses to exit.
+✅ **User Input Handling** - Ensuring valid inputs for numbers and operations.
+✅ **Math Module** - Used for power calculations (`math.pow`).
+
 ```python
 from art import logo, result_box_top, result_box_bottom
 import math
@@ -183,9 +203,6 @@ while continue_flag:
     print(f"= {float(round(result, 3))}")
     print(result_box_bottom)
     user_ans = input("For more calculations type 'yes', otherwise 'no' - ")
-    while user_ans not in ['yes', 'no']:
-        print("Invalid Input - try again!")
-        user_ans = input("For more calculations type 'yes', otherwise 'no' - ")
     if user_ans == 'no':
         print("Thank you, and goodbye! 😊")
         continue_flag = False
