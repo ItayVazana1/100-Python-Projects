@@ -128,3 +128,7 @@ my_list = ['Itay', 'Koral', 'Angela', 'Patrick']
 for any_name in my_list:
     print(f"The name "
           f"The name '{any_name}' start with the letter [{name_to_letter(any_name)}]")
+
+
+
+# TIP - using 'r' before string allow using '\' as a valid char!
