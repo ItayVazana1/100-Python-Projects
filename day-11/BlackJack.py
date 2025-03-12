@@ -10,7 +10,7 @@ print(game_logo)
 input("Press any key to start...")
 print("Welcome to my BlackJack Game!")
 player_name = input("Please insert your name before we start :\n")
-while player_name == "Computer":
+while player_name == "Computer" or player_name == "":
     print("Invalid name!")
     player_name = input("Please insert your name before we start :\n")
 
@@ -26,20 +26,22 @@ if p_ans == 'n':
     print(game_rules)
     input("Press any key to when you are ready to start...")
 
-print("Initialize banks and card pack...")
-time.sleep(3)
-print("We are Ready - Game Start!")
-print("-*-*-*-*-*-**-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*")
-
+print("\nInitialize banks and card pack...")
+time.sleep(2)
 player_bank = 1000
 computer_bank = 1000
 card_pack = game_functions.new_card_pack()
+print("Shuffle the cards...")
+time.sleep(2)
+
+print("\nWe are Ready - Game Start!")
 round_counter = 1
 
 while game_flag:
 
-    print(f"\nRound {round_counter}")
-    print("-*-*-*-*--*-*-*-*-*-*-*-*-*-")
+    print("\n-*-*-*-*--*-*-*-*-*-*")
+    print(f"       Round {round_counter}")
+    print("-*-*-*-*--*-*-*-*-*-*")
     print("Current banks status:")
     print(f"{player_name} bank - {player_bank} coins")
     print(f"Computer bank - {computer_bank} coins\n")
@@ -57,35 +59,37 @@ while game_flag:
         player_hand.append(game_functions.hit_from_stack(pack=card_pack))
         computer_hand.append(game_functions.hit_from_stack(pack=card_pack))
         if i == 0:
+            print("------------------------------")
             print(f"{player_name} first card is   {game_functions.reveal_card(card=player_hand[0])}")
             print(f"Computer first card is   {game_functions.reveal_card(card=computer_hand[0])}")
-
-    if game_functions.check_hand_value(hand=computer_hand) < 17:
-        game_functions.the_17_rule(c_hand=computer_hand, pack=card_pack)
-        if game_functions.check_hand_value(hand=computer_hand) > 21:
-            print("Computer's hand value is higher then 21 - Bust!")
-            stand_flag = True
+            print("------------------------------\n")
 
     while not stand_flag:
         game_functions.show_hand_cards(hand=player_hand, name=player_name)
-        print(f"Your current hand value is {game_functions.check_hand_value(hand=player_hand)} .")
+        print(f"{player_name} - Your current hand value is {game_functions.check_hand_value(hand=player_hand)} .")
         hit_or_stand = input("to hit a card type 'h' , to stand type 's' ---> ").lower()
         while hit_or_stand not in ['h', 's']:
             print("Invalid Input!")
-            print(f"Your current hand value is {game_functions.check_hand_value(hand=player_hand)} .")
+            print(f"{player_name} - Your current hand value is {game_functions.check_hand_value(hand=player_hand)} .")
             hit_or_stand = input("to hit a card type 'h' , to stand type 's' ---> ").lower()
 
         if hit_or_stand == 'h':
-            print(" <<----------->>  Hit! <<----------->>")
+            print("\n <<----------->>  Hit! <<----------->>\n")
             player_hand.append(game_functions.hit_from_stack(pack=card_pack, name=player_name))
             if game_functions.check_hand_value(hand=player_hand) > 21:
                 print(f"{player_name}'s hand value is higher then 21 - Bust!")
                 stand_flag = True
         else:
-            print(" <<----------->>  Stand! <<----------->>")
+            print("\n <<----------->>  Stand! <<----------->>\n")
             stand_flag = True
 
-    print(f" <<----------->> Round #{round_counter} - Summary <<----------->>")
+
+    if game_functions.check_hand_value(hand=computer_hand) < 17 and game_functions.check_hand_value(hand=player_hand) <= 21:
+        game_functions.the_17_rule(c_hand=computer_hand, pack=card_pack)
+        if game_functions.check_hand_value(hand=computer_hand) > 21:
+            print("Computer's hand value is higher then 21 - Bust!")
+
+    print(f"\n <<----------->> Round #{round_counter} - Summary <<----------->>\n")
     player_round_hand_value = game_functions.check_hand_value(hand=player_hand)
     computer_round_hand_value = game_functions.check_hand_value(hand=computer_hand)
 
@@ -127,9 +131,8 @@ elif player_bank == computer_bank:
 else:
     print("The Computer!")
 
-
-
-
-
+print("status of the pack")
+for key in card_pack:
+    print(card_pack[key])
 
 

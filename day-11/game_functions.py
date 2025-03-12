@@ -23,6 +23,7 @@ def hit_from_stack(pack, name="Computer"):
             pack = new_card_pack()
 
     card_value = random.choice(pack[symbol])
+    pack[symbol].pop(card_value)
 
     c_suit = {
         'club': 0 ,
@@ -42,7 +43,7 @@ def hit_from_stack(pack, name="Computer"):
                 print("Invalid Input!")
                 card_value = int(input("Type the value for this A - 1 or 11 --> "))
 
-    card = [card_value,symbol,symbols_signs[c_suit[symbol]]]
+    card = [card_value, symbol, symbols_signs[c_suit[symbol]]]
 
     return card
 
