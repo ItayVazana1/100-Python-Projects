@@ -47,3 +47,5 @@ Possible Outcomes:
 4. Computer wins – The player exceeds 21 (bust).
 5. Player wins – The computer exceeds 21 (bust).
 """
+
+symbols_signs = ["♣", "♦", "♥", "♠"]
