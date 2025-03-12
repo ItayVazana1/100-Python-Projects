@@ -1,6 +1,6 @@
 import time
 
-from art import game_logo,game_rules
+from art import game_logo, game_rules, symbols_signs
 import game_functions
 
 
@@ -59,7 +59,7 @@ while game_flag:
         player_hand.append(game_functions.hit_from_stack(pack=card_pack))
         computer_hand.append(game_functions.hit_from_stack(pack=card_pack))
         if i == 0:
-            print("------------------------------")
+            print("\n------------------------------")
             print(f"{player_name} first card is   {game_functions.reveal_card(card=player_hand[0])}")
             print(f"Computer first card is   {game_functions.reveal_card(card=computer_hand[0])}")
             print("------------------------------\n")
@@ -131,8 +131,11 @@ elif player_bank == computer_bank:
 else:
     print("The Computer!")
 
+print("\n---------------------------")
 print("status of the pack")
+i = 0
 for key in card_pack:
-    print(card_pack[key])
-
+    print(f"{symbols_signs[i]} - {card_pack[key]}")
+    i += 1
+print("---------------------------")
 

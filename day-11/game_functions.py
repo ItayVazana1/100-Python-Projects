@@ -17,13 +17,13 @@ def hit_from_stack(pack, name="Computer"):
     card_symbols = ['club', 'diamond', 'heart', 'spade']
     symbol = random.choice(card_symbols)
     while len(pack[symbol]) == 0:
-        card_symbols.pop(symbol)
+        card_symbols.remove(symbol)
         symbol = random.choice(card_symbols)
         if len(card_symbols) == 0:
             pack = new_card_pack()
 
     card_value = random.choice(pack[symbol])
-    pack[symbol].pop(card_value)
+    pack[symbol].remove(card_value)
 
     c_suit = {
         'club': 0 ,
