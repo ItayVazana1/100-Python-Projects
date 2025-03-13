@@ -25,8 +25,7 @@ def check_if_correct(guess):
     global round_flag
 
     if guess == secret_number:
-        guess_is = "Correct!"
-        print(f"The number is {secret_number}")
+        guess_is = f"Correct !\nThe number is {secret_number} - well done!"
         round_flag = False
         return
     elif guess < secret_number:
@@ -35,6 +34,7 @@ def check_if_correct(guess):
         guess_is = "Too high..\nTry again!"
 
     attempts -= 1
+    check_if_lose()
 
 
 def set_difficulty(diff):
@@ -52,14 +52,21 @@ def set_attempts():
     else:
         attempts = 5
 
+def check_if_lose():
+    global round_flag
+
+    if attempts == 0:
+        print(f"The number was {secret_number}")
+        print("You have no more attempts..")
+        print("Sorry - you lose!")
+        round_flag = False
+
 
 # The Game itself :
-
 print(guess_the_number)
 player_in = input("\nType any key to start..")
 while game_flag:
-    new_num_to_guess()
-    print("I'm thinking of a number between 1 and 100.")
+    print("~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~")
     print("Choose game difficulty -")
     player_in = input("Type 'easy' or 'hard' --> ")
     while player_in not in ['easy', 'hard']:
@@ -69,15 +76,20 @@ while game_flag:
 
     set_difficulty(diff=player_in)
     set_attempts()
+    new_num_to_guess()
+    print("\nI'm thinking of a number between 1 and 100.")
 
     while round_flag:
 
         print(f"You have {attempts} attempts remaining to guess the number.\n")
 
+        print("-----------------")
         in_guess = int(input("Make a guess :  "))
+        print("-----------------")
 
         check_if_correct(in_guess)
         print(guess_is)
+
 
     player_in = input("If you want to play again type 'a' , otherwise type something else...")
     if player_in == 'a':
