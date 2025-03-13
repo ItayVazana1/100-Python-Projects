@@ -115,4 +115,19 @@ new_enemy_create_new()
 print(f"enemies value after function (not using global enemies)= {enemies}\n"
       f"(The value is the same as before the function)")
 
+# Pay attention! - there is a reason that modify a value of global variable from a function is not simple!
+# Remember that it's possible that many parts of your program depending on it ,
+# and every change of it comes with effect!
+
+
+# Python Constants
+# Global Constants are one type of variables that there is a legitimate reason
+# to use them as global --> they are not going to change ...
+# examples:
+# the value of PI
+PI = 3.14
+# the URL of Google:
+Google_URL = 'www.Google.com'
+
+# so Constants is a good usage of Global Scope.
 
