@@ -67,6 +67,7 @@ The projects and explanations here are fully my own — inspired by the course t
 | 9  | Secret Auction 🎩💰 | [Day 9](./day-09) |
 | 10 | Calculator App 🧮 | [Day 10](./day-10) |
 | 11 | BlackJack Game 🃏💰 | [Day 11](./day-11) |
+| 12 | Number Guessing Game 🎮 | [Day 12](./day-12) |
 | ... | ... | ... |
 
 
