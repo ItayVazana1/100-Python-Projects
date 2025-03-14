@@ -3,6 +3,7 @@ from random import randint
 
 
 # Debugging
+# (No daily project today - but still some important topics and concepts)
 
 # Debugging is the process of detecting and solving problems
 # in the code (not meter if it's running issues or mistake in values).

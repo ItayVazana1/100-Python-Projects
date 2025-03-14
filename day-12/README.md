@@ -88,4 +88,4 @@ print(guess_the_number)
 - **Global Variables** should be used carefully to avoid unexpected behavior.
 - **Project Integration**: The Number Guessing Game effectively applies these concepts.
 
-🛠️ Keep coding, and see you in Day 13! 🚀
+🛠️ see you in Day 13! 🚀
