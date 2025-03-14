@@ -1,6 +1,7 @@
 # Day 13 - 100 Days of Code - Python
 from random import randint
 
+
 # Debugging
 
 # Debugging is the process of detecting and solving problems
@@ -29,6 +30,7 @@ def my_func1():
 
 
 my_func1()
+
 
 # if we will run it - we will see nothing printed to screen.
 # so we need to ask our self some questions:
@@ -75,6 +77,8 @@ The value of 'i' is 17
 The value of 'i' is 18
 The value of 'i' is 19
 """
+
+
 # we can see that at the last running of the loop,
 # the value of 'i' is 19 , which is lower than 20.
 
@@ -90,6 +94,7 @@ def my_func1_solution1():
 
 
 my_func1_solution1()
+
 
 # we can see now that it's works!
 
@@ -148,9 +153,8 @@ IndexError: list index out of range
 
 min_val = 0
 max_val = 5
-dice_numbers = randint(a=min_val,b=max_val)
+dice_numbers = randint(a=min_val, b=max_val)
 print(dice_symbols[dice_numbers])
-
 
 # 3 - Play Computer - scan each line of code from start to end.
 # it's also recommended to create a trace chart to follow each
@@ -195,7 +199,7 @@ elif year > 1994:
 # search for the specific code or title of the error , and hopefully find some useful information
 # which will help us to solve it.
 
-# using try-except in the code (catch specific errors and response it the way we want):
+# 5 - using try-except in the code (catch specific errors and response it the way we want):
 age = 0
 try:
     age = int(input("How old are you?"))
@@ -205,5 +209,26 @@ except ValueError:
 if age > 18:
     print(f"You can drive at age {age}")
 
-
 # Remember - print() is your best friend in the debugging process.
+
+
+# 6 - Say hello to my little friend - Debugger
+
+# The Debugger is a powerful tool , mostly built-in the IDE ,
+# and it's give us the possibility to run the program in special way:
+# we can choose specific line of code (and even code blocks and functions),
+# and when the program is get to it - it stop , and give us information
+# about the variables and the data structure at this specific point.
+# from now and on , we can run it line by line , and see the changes in real time.
+# this is a game changer - we can see every little effect of each line on each defined variable
+# or function , and do this in the same time , moving slowly line by line, get deeper at the code,
+# until we find the problem (the value or the cause for the raising error) and fix it.
+# we can also "jump over" a built-in function or part of the code that we don't want to explore
+# the logic inside of them (most of the time it's because it's not relevant to the solution),
+# it's also useful when our project is build from more than one file.
+
+# Final tips :
+# 7 - take a break - most of the time it's better approach then sit hours and try.
+# 8 - ask friend - (a human one) , it's not a shame - maybe they had experienced same thing once and found solution.
+# 9 - Run often - don't wait until the code is too long and complex , it's easier to find solution to bug when the program is still simple.
+# 10 - Ask StackOverflow - basically it's like asking a programmer friend , but millions of them. ---> avengers-assemble!
