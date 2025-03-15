@@ -7,7 +7,6 @@ player_score = 0
 question_n = 1
 
 game_flag = True
-ה
 key_list = list(quantities_dict.keys())
 
 print(game_logo)
