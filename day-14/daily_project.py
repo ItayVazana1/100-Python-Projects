@@ -1,5 +1,4 @@
 import random
-
 from art import game_logo
 from Database import quantities_dict
 
@@ -7,11 +6,8 @@ from Database import quantities_dict
 player_score = 0
 question_n = 1
 
-first_quan = ""
-second_quan = ""
-
 game_flag = True
-
+ה
 key_list = list(quantities_dict.keys())
 
 print(game_logo)
@@ -42,9 +38,11 @@ while game_flag:
 
     if (first_quan > second_quan and ans_player == "higher") or (second_quan > first_quan and ans_player == "lower"):
         print("You right!")
-        player_score +=1
+        player_score += 1
+        question_n += 1
     else:
-        print("Game Over!")
+        print("\nGame Over!")
         print(f"{player_name}'s score : {player_score}")
+        print(f"GoodBye!")
         game_flag = False
 

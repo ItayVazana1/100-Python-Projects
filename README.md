@@ -69,8 +69,8 @@ The projects and explanations here are fully my own — inspired by the course t
 | 11 | BlackJack Game 🃏💰 | [Day 11](./day-11) |
 | 12 | Number Guessing Game 🎮 | [Day 12](./day-12) |
 | 13 | (No Project Today) 😢 | [Day 13](./day-13) |
+| 14 | Higher or Lower Game 🎮 | [Day 14](./day-14) |
 | ... | ... | ... |
-
 
 ---
 
