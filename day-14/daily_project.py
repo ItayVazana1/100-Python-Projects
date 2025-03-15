@@ -41,4 +41,10 @@ while game_flag:
         ans_player = input("Type 'higher' or 'lower' ---> ").lower()
 
     if (first_quan > second_quan and ans_player == "higher") or (second_quan > first_quan and ans_player == "lower"):
-        print("")
+        print("You right!")
+        player_score +=1
+    else:
+        print("Game Over!")
+        print(f"{player_name}'s score : {player_score}")
+        game_flag = False
+
