@@ -1,4 +1,26 @@
 import os
+from art import start_machine,order_in_process
+import time
+
+def start_the_machine():
+    print(start_machine)
+    time.sleep(3)
+    clear_screen()
+
+
+def show_menu(menu):
+    print("Welcome to the coffe machine! ☕ ")
+    print("what would you like to order?")
+    option_counter = 1
+    for key in menu:
+        print(f"{option_counter}- {key} , {menu[key]['cost']}")
+        option_counter += 1
+
+
+def advanced_mode(advanced_ops):
+    print("Choose operation:")
+    for key in advanced_ops:
+        print(f"{str(key)}:  {advanced_ops[key]}")
 
 
 def machine_report(current_ingredients, current_coins):

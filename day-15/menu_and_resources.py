@@ -8,7 +8,7 @@ MENU = {
         },
         "cost": 1.5
     },
-    "latter": {
+    "latte": {
         "ingredients": {
             "water": 200,
             "milk": 150,
@@ -68,3 +68,10 @@ INGREDIENTS = {
     }
 }
 
+
+ADVANCED_OPS = {
+    1: "View machine report",
+    2: "Refill ingredients",
+    3: "Collect Money",
+    4: "Reboot Machine"
+}
