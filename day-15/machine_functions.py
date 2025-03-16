@@ -2,7 +2,6 @@ import os
 from art import start_machine, reboot_machine, turn_off_machine, order_in_process
 import time
 
-
 current_payment_list = []
 current_payment_value = 0
 
@@ -34,12 +33,13 @@ def show_menu(menu):
     for key in menu:
         print(f"{option_counter}- {key} , {menu[key]['cost']}")
         option_counter += 1
-
+    print("Move to the technical menu by typing 'sys'")
 
 def advanced_mode(advanced_ops):
     print("Choose operation:")
     for key in advanced_ops:
         print(f"{str(key)}:  {advanced_ops[key]}")
+    print("Back to the regular menu by typing any other key..")
 
 
 def machine_report(current_ingredients, current_coins):
@@ -182,3 +182,5 @@ def make_order(order, menu, ingredients, coins):
     print("Your Order is Ready!")
     if change != 0 :
         print(f"Take your change - {round(change, 2)}$")
+
+

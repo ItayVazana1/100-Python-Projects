@@ -82,3 +82,4 @@ ADVANCED_OPS = {
     4: "Reboot Machine",
     5: "Turn off Machine"
 }
+
