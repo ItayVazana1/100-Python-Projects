@@ -19,16 +19,16 @@
 
 # what is the program requirements :
 
-# 1. Print a report
+# 1. Print a report - V
 # (It's need to say how many of each ingredient last,
 # and what possible type of drinks we can order)
 
-# 2. Check resources sufficient
+# 2. Check resources sufficient - V
 # after each order we need to make sure we update
 # the amount of each ingredient and also the money is
 # the box inside the machine
 # if it's not possible to make a specific order , it
-# should warn  when try to order it.
+# should warn when try to order it.
 
 # 3. Process coins
 # we need to make sure we refund the money if there

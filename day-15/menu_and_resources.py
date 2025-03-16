@@ -3,15 +3,15 @@
 MENU = {
     "espresso": {
         "ingredients": {
-            "water": 50,
+            "water": 47,
             "coffe": 18
         },
         "cost": 1.5
     },
     "latte": {
         "ingredients": {
-            "water": 200,
-            "milk": 150,
+            "water": 180,
+            "milk": 140,
             "coffe": 24
 
         },
@@ -19,8 +19,8 @@ MENU = {
     },
     "cappuccino": {
         "ingredients": {
-            "water": 250,
-            "milk": 100,
+            "water": 220,
+            "milk": 110,
             "coffe": 24
 
         },
@@ -55,22 +55,22 @@ INGREDIENTS = {
         "amount": 350,
         "unit": "ml",
         "NTR": False,
-        "max": 400,
-        "min": 60
+        "max": 1250,
+        "min": 50
     },
     "milk": {
         "amount": 330,
         "unit": "ml",
         "NTR": False,
-        "max": 400,
-        "min": 90
+        "max": 500,
+        "min": 50
     },
     "coffe": {
         "amount": 75,
         "unit": "ml",
         "NTR": False,
         "max": 125,
-        "min": 20
+        "min": 50
     }
 }
 

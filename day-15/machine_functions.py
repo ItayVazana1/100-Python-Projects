@@ -2,6 +2,11 @@ import os
 from art import start_machine, reboot_machine, turn_off_machine, order_in_process
 import time
 
+
+current_payment_list = []
+current_payment_value = 0
+
+
 def clear_screen():
     os.system('cls')
 
@@ -18,9 +23,9 @@ def reboot():
     clear_screen()
     start_the_machine()
 
-def turn_off(flag):
+def turn_off():
     print(turn_off_machine)
-    flag = False
+    return False
 
 def show_menu(menu):
     print("\nWelcome to the coffe machine! ☕ ")
@@ -43,7 +48,10 @@ def machine_report(current_ingredients, current_coins):
     print("--------------")
     print("Ingredients:")
     for key in current_ingredients:
-        print(f"{key} - {current_ingredients[key]['amount']}{current_ingredients[key]['unit']}")
+        comment = ""
+        if current_ingredients[key]['NTR']:
+            comment += "(Need Refill)"
+        print(f"{key} - {current_ingredients[key]['amount']}{current_ingredients[key]['unit']} {comment}")
 
     print("\nCoins:")
     total_value = 0
@@ -51,7 +59,7 @@ def machine_report(current_ingredients, current_coins):
         print(f"{key} ({current_coins[key]['value']}$) :  {current_coins[key]['count']}")
         total_value += (current_coins[key]['count'] * current_coins[key]['value'])
 
-    print(f"\nTotal value - {total_value}")
+    print(f"\nTotal value - {round(total_value, 2)}")
     print("--------------")
     print("***************")
 
@@ -63,7 +71,9 @@ def check_resources_amounts(drink, menu, current_ingredients):
         current_amount = current_ingredients[ingredient]['amount']
         min_amount = current_ingredients[ingredient]['min']
         order_usage = menu[drink]['ingredients'][ingredient]
-        if (current_amount-order_usage) < min_amount:
+        if 0 < (current_amount-order_usage) < min_amount:
+            current_ingredients[ingredient]['NTR'] = True
+        elif current_ingredients[ingredient]['NTR']:
             missing_ingredients.append(ingredient)
 
     if len(missing_ingredients) != 0:
@@ -74,6 +84,8 @@ def check_resources_amounts(drink, menu, current_ingredients):
 
 
 def get_purchase(coins):
+    global current_payment_list
+    global current_payment_value
 
     total_purchase = 0
     print("Insert the amount of each coin:\n")
@@ -87,23 +99,86 @@ def get_purchase(coins):
             finally:
                 break
 
+        current_payment_list.append([coin, in_coins])
         total_purchase += in_coins * coins[coin]['value']
 
-    return round(total_purchase,2)
+    current_payment_value = round(total_purchase, 2)
+    return round(total_purchase, 2)
 
 
 
 def take_an_order(order, menu, ingredients, coins):
 
     if order not in menu.keys():
-        print("Product is not exist in the menu.")
+        print("Product is not exist.")
+        print("Back to menu..")
+        current_payment_list.clear()
+        return False
     elif not check_resources_amounts(order, menu, ingredients):
-        return
+        print("Back to menu..")
+        current_payment_list.clear()
+        return False
     elif get_purchase(coins) < menu[order]['cost']:
         print("Sorry ... It's not enough money.")
+        print("Try to choose another one :)")
+        print("Back to menu..")
+        current_payment_list.clear()
+        return False
     else:
-        make_order()
+        return True
 
 
-def make_order():
-    print("working on it..")
+
+def calculate_change(order, menu, purchase):
+
+    cost_of_order = menu[order]['cost']
+
+    return purchase - cost_of_order
+
+
+def take_coins_from_payment(order_cost, coins):
+
+    global current_payment_list
+
+    current_payment_list.reverse()
+
+    value_basket = 0
+
+    for coin_set in current_payment_list:
+        coin_value = coins[coin_set[0]]['value']
+        for i in range(0, coin_set[1]):
+            if coin_value + value_basket < order_cost:
+                value_basket += coin_value
+                coins[coin_set[0]]['count'] += 1
+            elif coin_value + value_basket > order_cost:
+                break
+            else:
+                coins[coin_set[0]]['count'] += 1
+                return
+
+
+def make_order(order, menu, ingredients, coins):
+
+    global current_payment_value
+
+    print(order_in_process)
+
+    order_ingredients = list(menu[order]['ingredients'])
+
+    change = calculate_change(order, menu, current_payment_value)
+
+    order_cost = menu[order]['cost']
+
+    if change != 0:
+        take_coins_from_payment(order_cost, coins)
+
+    for oi in order_ingredients:
+        ingredients[oi]['amount'] -= menu[order]['ingredients'][oi]
+
+
+    current_payment_value = 0
+    current_payment_list.clear()
+
+    print("Your Order is Ready!")
+    if change != 0 :
+        print(f"Take your change - {round(change, 2)}$")
