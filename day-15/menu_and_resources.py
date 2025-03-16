@@ -51,27 +51,34 @@ MACHINE_COINS = {
 # NTR = Need to refill
 
 INGREDIENTS = {
-    "Water": {
+    "water": {
         "amount": 350,
         "unit": "ml",
-        "NTR": False
+        "NTR": False,
+        "max": 400,
+        "min": 60
     },
-    "Milk": {
-        "amount": 220,
+    "milk": {
+        "amount": 330,
         "unit": "ml",
-        "NTR": False
+        "NTR": False,
+        "max": 400,
+        "min": 90
     },
-    "Coffe": {
+    "coffe": {
         "amount": 75,
         "unit": "ml",
-        "NTR": False
+        "NTR": False,
+        "max": 125,
+        "min": 20
     }
 }
 
 
 ADVANCED_OPS = {
-    1: "View machine report",
-    2: "Refill ingredients",
+    1: "View Machine Report",
+    2: "Refill Ingredients",
     3: "Collect Money",
-    4: "Reboot Machine"
+    4: "Reboot Machine",
+    5: "Turn off Machine"
 }
