@@ -51,7 +51,7 @@ def machine_report(current_ingredients, current_coins):
         comment = ""
         if current_ingredients[key]['NTR']:
             comment += "(Need Refill)"
-        print(f"{key} - {current_ingredients[key]['amount']}{current_ingredients[key]['unit']} {comment}")
+        print(f"{key}: {current_ingredients[key]['amount']}{current_ingredients[key]['unit']} {comment}")
 
     print("\nCoins:")
     total_value = 0
@@ -59,7 +59,7 @@ def machine_report(current_ingredients, current_coins):
         print(f"{key} ({current_coins[key]['value']}$) :  {current_coins[key]['count']}")
         total_value += (current_coins[key]['count'] * current_coins[key]['value'])
 
-    print(f"\nTotal value - {round(total_value, 2)}")
+    print(f"\nTotal value: ${round(total_value, 2)}")
     print("--------------")
     print("***************")
 
@@ -73,6 +73,9 @@ def check_resources_amounts(drink, menu, current_ingredients):
         order_usage = menu[drink]['ingredients'][ingredient]
         if 0 < (current_amount-order_usage) < min_amount:
             current_ingredients[ingredient]['NTR'] = True
+        elif current_amount <= 0:
+            current_ingredients[ingredient]['NTR'] = True
+            current_ingredients[ingredient]['amount'] = 0
         elif current_ingredients[ingredient]['NTR']:
             missing_ingredients.append(ingredient)
 
@@ -184,3 +187,17 @@ def make_order(order, menu, ingredients, coins):
         print(f"Take your change - {round(change, 2)}$")
 
 
+def refill(ingredients):
+    for key in ingredients:
+        if ingredients[key]['NTR']:
+            ingredients[key]['amount'] = ingredients[key]['max']
+            ingredients[key]['NTR'] = False
+
+    print("Machine refilled successfully!\n")
+
+def collect(machine_coins):
+    total_value = 0
+    for key in machine_coins:
+        total_value += machine_coins[key]['count'] * machine_coins[key]['value']
+        machine_coins[key]['count'] = 0
+    print(f"${total_value} was collected from the machine.\nNow it's empty!")
