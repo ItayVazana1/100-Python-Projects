@@ -83,5 +83,54 @@ from prettytable import PrettyTable
 table = PrettyTable()
 # let's see what we got:
 print(table)
-# we got an empty table built from symbols.. boring right?
+# we got an empty table built from symbols, boring right?
 # let's add some data:
+pokemon_names = ["Pikachu", "Squirtle", "Charmander"]
+pokemon_type = ["Electric", "Water", "Fire"]
+# now , we need to find the correct method of prettytable class to add data,
+# and then we need to follow the DocString of this method and supply the correct
+# parameters.
+
+table.add_column("Pokemon Name", pokemon_names)
+table.add_column("Type", pokemon_type)
+# now let's print it:
+print(table)
+# output:
+r"""
++--------------+----------+
+| Pokemon Name |   Type   |
++--------------+----------+
+|   Pikachu    | Electric |
+|   Squirtle   |  Water   |
+|  Charmander  |   Fire   |
++--------------+----------+
+"""
+# we can see that we created a table , in simple way
+# using only lists and table object from prettytable.
+
+# we can also change the attributes of the table object.
+# let's try something:
+table.align = "l"
+print(table)
+# output:
+r"""
++--------------+----------+
+| Pokemon Name | Type     |
++--------------+----------+
+| Pikachu      | Electric |
+| Squirtle     | Water    |
+| Charmander   | Fire     |
++--------------+----------+
+"""
+# we can see that we changed the alignment of the content of table
+# from center to left, cool right?
+
+# Now - let's use the CoffeeMachine_Package to build a version of
+# the previous project (Coffee machine) but this time - in OOP approach.
+# to make life easier - the classes are already implemented :)
+# move to the main_CM.py to watch the full code.
+
+# we can see that the fact that we use classes and objects make our main program much more clear.
+# it's also helped us that all the methods already implemented.
+# so the OOP approach help us to create the same complex project - but in more clear and structured way!
+
