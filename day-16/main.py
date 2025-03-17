@@ -76,7 +76,7 @@
 # another way is use the Package installer in the JetBrain Pycharm IDE , which make it a little bit intuitive.
 
 # let's practice by using "prettytable" package:
-# first , need to install it ..
+# first , need to install it .
 # then , import it to this file :
 from prettytable import PrettyTable
 # and now we can create a new table object:
@@ -134,3 +134,4 @@ r"""
 # it's also helped us that all the methods already implemented.
 # so the OOP approach help us to create the same complex project - but in more clear and structured way!
 
+# Next lesson , we will learn how to create classes, how do inherent working and more!

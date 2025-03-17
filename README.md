@@ -71,6 +71,7 @@ The projects and explanations here are fully my own — inspired by the course t
 | 13 | (No Project Today) 😢 | [Day 13](./day-13) |
 | 14 | Higher or Lower Game 🎮 | [Day 14](./day-14) |
 | 15 | Coffee Machine Simulation ☕ | [Day 15](./day-15) |
+| 16 | OOP - Coffee Machine Simulation ☕ | [Day 16](./day-16) |
 | ... | ... | ... |
 
 ---
