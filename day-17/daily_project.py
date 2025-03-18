@@ -83,10 +83,10 @@ while game_flag:
     random.shuffle(questions_bank)
     current_q = random.choice(questions_bank)
     current_q.show(question_counter)
-    ans = input("").lower()
+    ans = input(">> ").lower()
     while ans not in ['true','false']:
         print("Invalid input!")
-        ans = input("Choose - True or False?\n").lower()
+        ans = input("Choose - True or False?\n>> ").lower()
     result = current_q.check_if_correct(convert_ans_boolean(ans))
     player.update_score(result)
     if player.check_if_lose():
