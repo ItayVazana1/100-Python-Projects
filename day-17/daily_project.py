@@ -88,10 +88,17 @@ while game_flag:
         ans = input("Choose - True or False?\n").lower()
     result = current_q.check_if_correct(convert_ans_boolean(ans))
     player.update_score(result)
-    player.check_if_lose()
+    if not player.check_if_lose():
+        print("I am sorry..You lose!")
+        print("Here is your statistics:")
+        game_flag = False
+        break
     ask_if_quit = input("\nType 'Q' to Quit now , otherwise type any key when you ready for the next Question..").lower()
     if ask_if_quit == 'q':
         print("It's Ok! - you played well!")
         print("Here is your statistics:")
-        
+        Player.game_statics()
+        game_flag = False
+
+
 
