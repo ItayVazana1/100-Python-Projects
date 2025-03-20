@@ -1,5 +1,6 @@
 # Day 18 - 100 Days of Code - Python
 import time
+import turtle
 # need to complete tomorrow!
 # I am back! - let's do this!
 
@@ -80,7 +81,6 @@ def make_square_with_turtle():
             my_turtle.forward(80)
         my_turtle.right(90)
         turn_counter += 1
-
         if turn_counter == 4:
             my_turtle.forward(80)
             my_turtle.clear()
@@ -92,7 +92,131 @@ def make_square_with_turtle():
         else:
             my_turtle.forward(160)
 
+        print(my_turtle.heading())
 
 
-make_square_with_turtle()
+# make_square_with_turtle()
 
+
+def controlled_turtle():
+    my_c_turtle = Turtle()
+    my_c_turtle.shape("turtle")
+    my_c_turtle.color("green")
+    my_c_turtle.speed(1.5)
+    my_c_turtle.shapesize(2, 2, 2)
+    screen = Screen()
+
+    def turn_up():
+        turtle_angle = my_c_turtle.heading()
+        if turtle_angle == 0.0:
+            r"""facing right"""
+            my_c_turtle.left(90)
+        elif turtle_angle == 270.0:
+            r"""facing down"""
+            my_c_turtle.left(180)
+        elif turtle_angle == 180.0:
+            r"""facing left"""
+            my_c_turtle.right(90)
+
+        my_c_turtle.forward(100)
+        return
+
+    def turn_down():
+        turtle_angle = my_c_turtle.heading()
+        if turtle_angle == 0.0:
+            r"""facing right"""
+            my_c_turtle.right(90)
+        elif turtle_angle == 90.0:
+            r"""facing up"""
+            my_c_turtle.right(180)
+        elif turtle_angle == 180.0:
+            r"""facing left"""
+            my_c_turtle.left(90)
+
+        my_c_turtle.forward(100)
+        return
+
+    def turn_right():
+        turtle_angle = my_c_turtle.heading()
+        if turtle_angle == 90.0:
+            r"""facing up"""
+            my_c_turtle.right(90)
+        elif turtle_angle == 270.0:
+            r"""facing down"""
+            my_c_turtle.left(90)
+        elif turtle_angle == 180.0:
+            r"""facing left"""
+            my_c_turtle.right(180)
+
+        my_c_turtle.forward(100)
+        return
+
+    def turn_left():
+        turtle_angle = my_c_turtle.heading()
+        if turtle_angle == 0.0:
+            r"""facing right"""
+            my_c_turtle.left(180)
+        elif turtle_angle == 270.0:
+            r"""facing down"""
+            my_c_turtle.right(90)
+        elif turtle_angle == 90.0:
+            r"""facing up"""
+            my_c_turtle.left(90)
+
+        my_c_turtle.forward(100)
+        return
+
+
+    screen.listen()
+    screen.onkeypress(turn_up, "Up")
+    screen.onkeypress(turn_down, "Down")
+    screen.onkeypress(turn_right, "Right")
+    screen.onkeypress(turn_left, "Left")
+    turtle.mainloop()
+
+
+# controlled_turtle()
+
+turn_counter = 0
+def dashed_line_turtle():
+
+    global turn_counter
+    my_turtle = Turtle()
+    my_turtle.pensize(2)
+    my_turtle.shape("turtle")
+    my_turtle.speed(1.5)
+    my_turtle.shapesize(2, 2, 2)
+    screen = Screen()
+
+
+    def dash_handle():
+        if my_turtle.isdown():
+            my_turtle.pu()
+        else:
+            my_turtle.pd()
+
+    def make_tiny_steps(distance):
+        for i in range(distance):
+            my_turtle.forward(5)
+            dash_handle()
+
+    def turtle_move_in_square():
+
+        global turn_counter
+        if turn_counter == 0:
+            make_tiny_steps(25)
+        my_turtle.right(90)
+        if turn_counter == 4:
+            make_tiny_steps(25)
+            turn_counter = 0
+            my_turtle.clear()
+        else:
+            make_tiny_steps(40)
+
+
+    while True:
+        turtle_move_in_square()
+
+
+
+dashed_line_turtle()
