@@ -1,4 +1,5 @@
 # Day 18 - 100 Days of Code - Python
+import random
 import time
 import turtle
 # need to complete tomorrow!
@@ -22,14 +23,15 @@ from turtle import Turtle, Screen
 
 # now we will create the turtle object :
 
-tutti_the_turtle = Turtle()
+# tutti_the_turtle = Turtle()
 
 # change it to be  really turtle and not cursor :
-tutti_the_turtle.shape("turtle")
+
+#tutti_the_turtle.shape("turtle")
 
 # we can also change the color of the turtle :
 
-tutti_the_turtle.color('green')
+#tutti_the_turtle.color('green')
 
 # fins all available colors here : https://cs111.wellesley.edu/labs/lab02/colors
 
@@ -62,7 +64,7 @@ while screen:
 
 
 # now just delete this turtle :
-tutti_the_turtle.hideturtle()
+#tutti_the_turtle.hideturtle()
 
 
 # Now just make some fun with the turtle :)
@@ -219,4 +221,113 @@ def dashed_line_turtle():
 
 
 
-dashed_line_turtle()
+# dashed_line_turtle()
+
+
+def drawing_different_shapes():
+    pen_size = 1
+    colors = ['blue', 'red', 'purple', 'orange', 'pink', 'green', 'aquamarine4', 'brown', 'magenta']
+    my_turtle = Turtle()
+    my_turtle.pensize(pen_size)
+    my_turtle.shape("turtle")
+    my_turtle.speed(5)
+    screen = Screen()
+    circle = 360
+    number_of_edges = 4
+    acc_og_deg = 3
+    angle = round(circle / number_of_edges, acc_og_deg)
+    number_of_turns = 0
+    len_of_edge = 124
+
+
+
+    while len(colors) > 0:
+        if number_of_turns == 0:
+            my_turtle.forward(len_of_edge/2)
+            my_turtle.right(angle)
+            number_of_turns += 1
+        elif number_of_turns == number_of_edges:
+            my_turtle.forward(len_of_edge/2)
+            rand_color = random.choice(colors)
+            my_turtle.color(rand_color)
+            colors.remove(rand_color)
+            number_of_edges += 1
+            angle = round(circle / number_of_edges, acc_og_deg)
+            number_of_turns = 0
+            pen_size += 1
+            my_turtle.pensize(pen_size)
+        else:
+            my_turtle.forward(len_of_edge)
+            my_turtle.right(angle)
+            number_of_turns += 1
+
+        print(f"turn = {number_of_turns} , angle = {angle}")
+
+    screen.exitonclick()
+
+
+# drawing_different_shapes()
+
+
+def generate_color():
+    r = random.randint(1,255)
+    g = random.randint(1, 255)
+    b = random.randint(1, 255)
+    rgb = (r, g, b)
+    return rgb
+
+def random_walk():
+    my_turtle = Turtle()
+    my_turtle.pensize(10)
+    my_turtle.hideturtle()
+    size_factor = 1
+    my_turtle.speed(size_factor)
+    turns = 0
+    angles = [0, 90, 180, 270]
+    screen = Screen()
+    screen.colormode(255)
+
+    while turns < 500:
+        my_turtle.seth(random.choice(angles))
+        my_turtle.forward(25)
+        my_turtle.color(generate_color())
+        if size_factor < 10:
+            size_factor += 0.01
+            my_turtle.speed(size_factor)
+        turns += 1
+        print(turns)
+
+
+# random_walk()
+
+# Tuple = data structure like list - but can only initialize it  and then is un-changeable
+# can and should be used when working with constant lists , RGB , and many more.
+
+def make_a_spirograph():
+    turtle.mode("logo")
+    my_turtle = Turtle()
+    my_turtle.pensize(1)
+    init_speed = "fastest"
+    my_turtle.speed(init_speed)
+    number_of_circles = 80
+    delta_angle = 360//number_of_circles
+    screen = Screen()
+    screen.colormode(255)
+    current_angle = 0
+    radius = 100
+
+
+    while current_angle <= 360:
+        my_turtle.circle(radius)
+        my_turtle.seth(360-current_angle)
+        my_turtle.hideturtle()
+        my_turtle.color(generate_color())
+        current_angle += delta_angle
+
+
+    screen.exitonclick()
+
+
+make_a_spirograph()
+
+
