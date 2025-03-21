@@ -1,6 +1,5 @@
 # Day 18 - 100 Days of Code - Python
 import random
-import time
 import turtle
 # need to complete tomorrow!
 # I am back! - let's do this!
@@ -27,11 +26,11 @@ from turtle import Turtle, Screen
 
 # change it to be  really turtle and not cursor :
 
-#tutti_the_turtle.shape("turtle")
+# tutti_the_turtle.shape("turtle")
 
 # we can also change the color of the turtle :
 
-#tutti_the_turtle.color('green')
+# tutti_the_turtle.color('green')
 
 # fins all available colors here : https://cs111.wellesley.edu/labs/lab02/colors
 
@@ -47,7 +46,7 @@ while screen:
         time.sleep(0.25)
 """
 
-# we don't actually need to remember all of those functions of each object..
+# we don't actually need to remember all of those functions of each object.
 # a quick search using google , ChatGPT or in the Turtle Docs online -
 # will give us a lot of data!
 
@@ -64,7 +63,7 @@ while screen:
 
 
 # now just delete this turtle :
-#tutti_the_turtle.hideturtle()
+# tutti_the_turtle.hideturtle()
 
 
 # Now just make some fun with the turtle :)
@@ -75,21 +74,21 @@ def make_square_with_turtle():
     my_turtle.color("green")
     my_turtle.speed(1.5)
     my_turtle.shapesize(2, 2, 2)
-    turn_counter = 0
+    turns_counter = 0
     colors = ['blue', 'red', 'purple', 'orange', 'pink', 'green']
     color_index = 0
     while True:
-        if turn_counter == 0:
+        if turns_counter == 0:
             my_turtle.forward(80)
         my_turtle.right(90)
-        turn_counter += 1
-        if turn_counter == 4:
+        turns_counter += 1
+        if turns_counter == 4:
             my_turtle.forward(80)
             my_turtle.clear()
             if color_index == len(colors)-1:
                 color_index = 0
             my_turtle.color(colors[color_index])
-            turn_counter = 0
+            turns_counter = 0
             color_index += 1
         else:
             my_turtle.forward(160)
@@ -188,7 +187,6 @@ def dashed_line_turtle():
     my_turtle.shape("turtle")
     my_turtle.speed(1.5)
     my_turtle.shapesize(2, 2, 2)
-    screen = Screen()
 
 
     def dash_handle():
@@ -270,7 +268,7 @@ def drawing_different_shapes():
 
 
 def generate_color():
-    r = random.randint(1,255)
+    r = random.randint(1, 255)
     g = random.randint(1, 255)
     b = random.randint(1, 255)
     rgb = (r, g, b)
@@ -329,5 +327,3 @@ def make_a_spirograph():
 
 
 make_a_spirograph()
-
-
