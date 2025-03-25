@@ -77,7 +77,6 @@ The projects and explanations here are fully my own — inspired by the course t
 | 19 | Etch-A-Sketch 🖌️ & Turtle Race 🐢 | [Day 19](./day-19) |
 | ... | ... | ... |
 
-Etch-A-Sketch 🖌️ & Turtle Race 🐢
 
 ---
 
