@@ -82,3 +82,5 @@ print(f"The result is = {result}")
 # the speed of each turtle is random.
 # the winner is the first turtle that get to the finish line.
 
+# finished! - can see the Turtle race file :)
+
