@@ -74,8 +74,10 @@ The projects and explanations here are fully my own — inspired by the course t
 | 16 | OOP - Coffee Machine Simulation ☕ | [Day 16](./day-16) |
 | 17 | OOP-Based QUIZ Game 🎮 | [Day 17](./day-17) |
 | 18 | Hirst Painting Generator using Turtle 🖌️🎨 | [Day 18](./day-18) |
+| 19 | Etch-A-Sketch 🖌️ & Turtle Race 🐢 | [Day 19](./day-19) |
 | ... | ... | ... |
 
+Etch-A-Sketch 🖌️ & Turtle Race 🐢
 
 ---
 

@@ -125,10 +125,9 @@ def bet_on_winner():
     print("Choose your winner Turtle:")
     for comp_t in comp_turtles:
         print(f"{i} - {comp_t.name} - ({comp_t.color_name})")
-    bet_name = input("\n(Insert the name of the turtle):\n")
+    bet_name = screen.textinput(title="Make your bet", prompt="Which turtle will win the race?\nEnter a valid name: ")
     while bet_name not in t_names:
-        print("You must choose a valid name!")
-        bet_name = input("\n(Insert the name of the turtle):\n")
+        bet_name = screen.textinput(title="Alert", prompt="You must choose a valid name!\nWhich turtle will win the race?")
     return bet_name
 
 def the_leader_is():
