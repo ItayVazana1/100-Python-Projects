@@ -1,6 +1,5 @@
 # Day 21 - 100 Days of Code - Python
-
-
+import random
 # Make some progres , the snake object is almost ready.
 # next thing - game logic and in-game event handlers.
 
@@ -14,12 +13,40 @@ directions = {
     "N": 90
 }
 
+screen_size = 600
+buffer_from_edge = 10
+game_area =int((screen_size/2) - buffer_from_edge)
+
+
+class Apple:
+    def __init__(self):
+        self.apple = Turtle()
+        self.apple.hideturtle()
+        self.apple.pu()
+        self.x = random.randint(-game_area, game_area)
+        self.y = random.randint(-game_area, game_area)
+        self.apple.setpos((self.x, self.y))
+        self.apple.shape("circle")
+        self.apple.color("red")
+        self.apple.showturtle()
+
+    def is_eaten(self,s_head):
+        df = 10
+        x_apple = self.apple.xcor()
+        y_apple = self.apple.ycor()
+        x_head = s_head.xcor()
+        y_head = s_head.ycor()
+        if (x_apple - df) <= x_head <= (x_apple + df) and (y_apple - df) <= y_head <= (y_apple + df):
+            return True
+        else:
+            return False
+
 
 class Snake:
     def __init__(self):
         self.head = Turtle()
         self.body = []
-        self.step_size = 7
+        self.step_size = 15
         self.speed = 3
         self.speed_limit = 5
         self.apples = 0
@@ -32,7 +59,7 @@ class Snake:
     def init_head(self):
         self.head.pu()
         self.head.color("green")
-        self.head.shape("circle")
+#        self.head.shape("circle")
 
     def init_body(self):
         x = self.head.xcor()
@@ -41,7 +68,7 @@ class Snake:
             new_unit = Turtle()
             new_unit.pu()
             new_unit.color("green")
-            new_unit.shape("circle")
+#            new_unit.shape("circle")
             new_unit.setx(x)
             self.body.append(new_unit)
             x = new_unit.xcor()
@@ -112,7 +139,7 @@ class Snake:
 s = Snake()
 s.init_snake()
 screen = Screen()
-
+a = Apple()
 
 while True:
     if s.change_dir:
@@ -120,6 +147,10 @@ while True:
         time.sleep(0.2)
     else:
         s.s_movement()
+    if a.is_eaten(s.head):
+        print(f"apple is eaten in location ({a.x},{a.y})")
+        a.apple.hideturtle()
+        a = Apple()
     screen.listen()
     screen.onkey(key="w", fun=s.move_w_key)
     screen.onkey(key="d", fun=s.move_d_key)
