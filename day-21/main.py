@@ -6,6 +6,13 @@ import random
 import time
 from turtle import Turtle, Screen
 
+screen_size = 600
+buffer_from_edge = 10
+game_area = int((screen_size/2) - buffer_from_edge)
+screen = Screen()
+screen.setup(height=screen_size, width=screen_size)
+screen.colormode(255)
+
 directions = {
     "E": 0,
     "S": 270,
@@ -13,10 +20,17 @@ directions = {
     "N": 90
 }
 
-screen_size = 600
-buffer_from_edge = 10
-game_area =int((screen_size/2) - buffer_from_edge)
+class ScoreBoard:
+    def __init__(self):
+        self.sb = Turtle()
+        self.sb.pu()
+        self.sb.hideturtle()
+        self.sb.setpos((-game_area + 70, game_area - 20))
 
+    def update_score(self, score):
+
+        self.sb.clear()
+        self.sb.write(f"Score : {score}", move=False, align="right", font=("Arial", 12, "bold"))
 
 class Apple:
     def __init__(self):
@@ -30,7 +44,7 @@ class Apple:
         self.apple.color("red")
         self.apple.showturtle()
 
-    def is_eaten(self,s_head):
+    def is_eaten(self, s_head):
         df = 10
         x_apple = self.apple.xcor()
         y_apple = self.apple.ycor()
@@ -41,16 +55,30 @@ class Apple:
         else:
             return False
 
+    def remove_from_board(self):
+        self.apple.hideturtle()
+
 
 class Snake:
     def __init__(self):
+        self.color_index = True
         self.head = Turtle()
         self.body = []
-        self.step_size = 15
+        self.tail = None
+        self.step_size = 10
         self.speed = 3
         self.speed_limit = 5
         self.apples = 0
         self.change_dir = False
+
+    def set_color(self):
+        if self.color_index:
+            c = (29, 95, 9)
+        else:
+            c = (93, 206, 58)
+
+        self.color_index = not self.color_index
+        return c
 
     def init_snake(self):
         self.init_head()
@@ -58,43 +86,53 @@ class Snake:
 
     def init_head(self):
         self.head.pu()
-        self.head.color("green")
-#        self.head.shape("circle")
+        self.head.color(self.set_color())
+        self.head.shape("circle")
 
     def init_body(self):
         x = self.head.xcor()
         x -= self.step_size
         for i in range(2):
-            new_unit = Turtle()
-            new_unit.pu()
-            new_unit.color("green")
-#            new_unit.shape("circle")
-            new_unit.setx(x)
-            self.body.append(new_unit)
-            x = new_unit.xcor()
+            new_cell = self.create_cell()
+            new_cell.setx(x)
+            self.body.append(new_cell)
+            self.tail = new_cell
+            x = new_cell.xcor()
             x -= self.step_size
+            new_cell.showturtle()
+
+    def create_cell(self):
+        new_unit = Turtle()
+        new_unit.hideturtle()
+        new_unit.shape("circle")
+        new_unit.pu()
+        new_unit.color(self.set_color())
+        return new_unit
+
+    def update_snake(self):
+        self.apples += 1
+        new_cell = self.create_cell()
+        x = self.tail.xcor()
+        y = self.tail.ycor()
+        new_cell.setpos((x, y))
+        self.body.append(new_cell)
+        self.tail = new_cell
+        new_cell.showturtle()
 
     def s_movement(self):
 
-        x_old = None
-        y_old = None
-        heading_old = None
         x_new = self.head.xcor()
         y_new = self.head.ycor()
-        heading_new = self.head.heading()
 
         self.head.forward(self.step_size)
 
         for unit in self.body:
             x_old = unit.xcor()
             y_old = unit.ycor()
-            heading_old = unit.heading()
             unit.setx(x_new)
             unit.sety(y_new)
-            unit.seth(heading_new)
             x_new = x_old
             y_new = y_old
-            heading_new = heading_old
 
     def update_speed_limit(self):
         if self.speed_limit != 10:
@@ -138,8 +176,9 @@ class Snake:
 
 s = Snake()
 s.init_snake()
-screen = Screen()
 a = Apple()
+s_board = ScoreBoard()
+s_board.update_score(s.apples)
 
 while True:
     if s.change_dir:
@@ -149,7 +188,9 @@ while True:
         s.s_movement()
     if a.is_eaten(s.head):
         print(f"apple is eaten in location ({a.x},{a.y})")
-        a.apple.hideturtle()
+        a.remove_from_board()
+        s.update_snake()
+        s_board.update_score(s.apples)
         a = Apple()
     screen.listen()
     screen.onkey(key="w", fun=s.move_w_key)
